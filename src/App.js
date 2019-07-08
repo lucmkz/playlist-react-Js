@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components'
 import './App.css';
 import VideosList from './components/videosList'
+import VideoSingle from './components/videoSingle'
 
 import 'milligram'
 
@@ -13,6 +14,7 @@ const App = () => (
     </Header>
 
     <Main>
+      <VideoSingle />
       <VideosList />
     </Main>
 
