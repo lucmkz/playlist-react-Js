@@ -19,7 +19,7 @@ componentDidMount() {
 }
 
   render () {
-    const {isRegisterFormOpened} = this.props
+    const {isRegisterFormOpened, videoSingleId, videos} = this.props
 
    return(
      <Container>
@@ -28,7 +28,8 @@ componentDidMount() {
   
       <Main>
         {isRegisterFormOpened && <RegisterVideio />}
-        <VideoSingle />
+        {videoSingleId && <VideoSingle id={videoSingleId} title={videos[videoSingleId].title}/>}
+
         <VideosList />
       </Main>
   
@@ -38,6 +39,7 @@ componentDidMount() {
    }
 }
 
+//
 const Main = styled.main`
   min-height: calc(100% - ${footerHeight} - ${headerHeight});
 `
@@ -52,7 +54,9 @@ const GlobalStyle = createGlobalStyle`
   } 
 `
 const mapStateToProps = (state) => ({
-  isRegisterFormOpened: state.ui.isRegisterFormOpened
+  isRegisterFormOpened: state.ui.isRegisterFormOpened,
+  videoSingleId: state.videoSingle,
+  videos: state.videos
 })
 
 const mapDispatchToProps = (dispatch) => ({

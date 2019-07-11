@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Play from '../icon-play'
 import { connect } from 'react-redux'
+import { selectVideoSingle } from '../../redux-flow/reducers/video-single/action-creators'
 
 const VideosList = ({ videos, handleClick }) => (
     <Container>
@@ -67,7 +68,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     handleClick: (id) => (e) => {
         e.preventDefault()
-        console.log(id)
+        dispatch(selectVideoSingle(id))
     }
 })
 
