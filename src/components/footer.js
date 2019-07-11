@@ -12,6 +12,11 @@ const mainFooter = () => (
 const Footer = styled.footer`
 height: ${footerHeight};
 background: #333;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
 `
 
 export default mainFooter

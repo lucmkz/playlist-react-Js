@@ -11,11 +11,23 @@ export const addVideo = ({ id, title }) => ({
     payload: {id, title}
 })
 
+
+//db.ref('videos').orderBy('title').on('child_added', (child, prevKey) => {
+//    console.log(child.val(), prevKey)
+//})
+//Está instrução, ordena os valores retornados pelo "filho" de "videos", nesse caso, "title"
 export const fetchVideos = () => (dispatch) => {
-    db.ref('video').on('value', (snapshot) => {
-        console.log(snapshot.val())
-        snapshot.forEach((child) => {
-            dispatch(addVideo(child.val()))
-        })
+    db.ref('video').on('value', (snapshot) => {    
+        const videos = snapshot.val()
+        //object.keys([OBJETO]), criará um array com os ids de um objeto
+        const ordered = Object.keys(videos)
+        .sort((a, b) => videos[a].title < videos[b].title ? -1 : 1)
+        .forEach((id) => dispatch(addVideo({
+            id,
+            title:videos[id].title
+        })))
+        //snapshot.forEach((child) => {
+        //    dispatch(addVideo(child.val()))
+        //})
     })
 }
