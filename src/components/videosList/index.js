@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import Play from '../icon-play'
+import { connect } from 'react-redux'
 
-const VideosList = () => (
+const VideosList = ({ videos }) => (
     <Container>
-        {Array.from({ length: 10 }).map((item, index) => (
-            <Video key={index}>
+        {Object.keys(videos).map((id) => (
+            <Video key={id}>
                 <VideoThumb>
                     <PlayStyled />
                 </VideoThumb>
-                <VideoTitle>Titulo Video</VideoTitle>
+                <VideoTitle>{videos[id].title}</VideoTitle>
             </Video>
         ))}
     </Container>
@@ -51,7 +52,9 @@ const VideoThumb = styled.div`
 const VideoTitle = styled.h2`
   font-size: 18px;
 `
+const mapStateToProps = (state) => ({
+    videos: state.videos
+})
 
 
-
-export default VideosList
+export default connect(mapStateToProps)(VideosList)

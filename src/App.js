@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { PureComponent }from 'react';
 import styled, { createGlobalStyle } from 'styled-components'
 import VideosList from './components/videosList'
 import VideoSingle from './components/videoSingle'
@@ -8,25 +8,35 @@ import Header from './components/header'
 import Footer from './components/footer'
 import { connect } from 'react-redux'
 import { headerHeight, footerHeight } from './utils/constants'
+import { fetchVideos } from './redux-flow/reducers/videos/action-creators'
 
 import 'milligram'
+import { dispatch } from 'rxjs/internal/observable/range';
 
-const App = ({ isRegisterFormOpened }) => (
-  <Container>
-  <GlobalStyle />
-    <Header/>
+class App extends PureComponent {
+componentDidMount() {
+  this.props.fetchVideos()
+}
 
-    <Main>
-      {isRegisterFormOpened && <RegisterVideio />}
-      <VideoSingle />
-      <VideosList />
-    </Main>
+  render () {
+    const {isRegisterFormOpened} = this.props
 
-    <Footer />
-
-  </Container>
-
-)
+   return(
+     <Container>
+    <GlobalStyle />
+      <Header/>
+  
+      <Main>
+        {isRegisterFormOpened && <RegisterVideio />}
+        <VideoSingle />
+        <VideosList />
+      </Main>
+  
+      <Footer />
+    </Container>
+    )
+   }
+}
 
 const Main = styled.main`
   min-height: calc(100% - ${footerHeight} - ${headerHeight});
@@ -45,4 +55,8 @@ const mapStateToProps = (state) => ({
   isRegisterFormOpened: state.ui.isRegisterFormOpened
 })
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = (dispatch) => ({
+  fetchVideos: () => dispatch(fetchVideos())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
