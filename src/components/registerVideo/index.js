@@ -24,7 +24,7 @@ const Form = styled.form`
 `
 
 const ButtonClose = styled.button`
-    font-size: 20px;
+    font-size: 22px;
     margin: 0;
     padding: 0;
     width: 30px;
