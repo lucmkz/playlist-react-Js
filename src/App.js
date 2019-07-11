@@ -1,62 +1,37 @@
+import './App.css';
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components'
-import './App.css';
 import VideosList from './components/videosList'
 import VideoSingle from './components/videoSingle'
 import RegisterVideio from './components/registerVideo'
+import Header from './components/header'
+import Footer from './components/footer'
+import { connect } from 'react-redux'
+import { headerHeight, footerHeight } from './utils/constants'
 
 import 'milligram'
 
-const App = () => (
+const App = ({ isRegisterFormOpened }) => (
   <Container>
   <GlobalStyle />
-    <Header>
-      <HeaderTitle>Playlist</HeaderTitle>
-      <RegisterButton>Cadastrar</RegisterButton>
-    </Header>
+    <Header/>
 
     <Main>
-      <RegisterVideio />
+      {isRegisterFormOpened && <RegisterVideio />}
       <VideoSingle />
       <VideosList />
     </Main>
 
-    <Footer>
-      &copy; 2019
-    </Footer>
+    <Footer />
+
   </Container>
 
 )
-
-const headerHeight = '60px'
-const footerHeight = '30px'
 
 const Main = styled.main`
   min-height: calc(100% - ${footerHeight} - ${headerHeight});
 `
 
-const Header = styled.header`
-  align-items: center;
-  height: ${headerHeight};
-  display: flex;
-  justify-content: space-between;
-  background: #333;
-  padding: 0 10px;
- `
-
- const HeaderTitle = styled.h1`
-  margin-bottom: 0px;
-  color: #fff;
- `
-
- const RegisterButton = styled.button`
-  margin-bottom: 0px;
- `
-
- const Footer = styled.footer`
- height: ${footerHeight};
- background: #333;
-`
 const Container = styled.div`
   height: 100%;
 `
@@ -66,5 +41,8 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   } 
 `
+const mapStateToProps = (state) => ({
+  isRegisterFormOpened: state.ui.isRegisterFormOpened
+})
 
-export default App;
+export default connect(mapStateToProps)(App)
