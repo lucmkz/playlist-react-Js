@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
+import { registerVideo } from '../../redux-flow/reducers/videos/action-creators'
 
 const ResgisterVideo = ({ onSubmit }) => (
     <Form onSubmit={onSubmit}>
@@ -21,8 +22,16 @@ const Form = styled.form`
 `
 
 const mapDispatchToProps = (dispatch) => ({
-    onSubmit: (e) => {
+    onSubmit: async (e) => {
+        //e.target captura informação do elemento que eamos interagindo
+        const id = e.target.id.value
+        const title = e.target.title.value
         e.preventDefault()
+        e.persist()
+
+       await dispatch(registerVideo({ id, title }))
+       e.target.reset()
+       e.target[0].focus()
     } 
 })
 
