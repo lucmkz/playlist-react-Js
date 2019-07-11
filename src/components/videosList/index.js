@@ -3,13 +3,15 @@ import styled from 'styled-components'
 import Play from '../icon-play'
 import { connect } from 'react-redux'
 
-const VideosList = ({ videos }) => (
+const VideosList = ({ videos, handleClick }) => (
     <Container>
         {Object.keys(videos).map((id) => (
             <Video key={id}>
-                <VideoThumb>
-                    <PlayStyled />
-                </VideoThumb>
+                <VideoLink href="#" onClick={handleClick(id)}>
+                    <VideoThumb>
+                        <PlayStyled />
+                    </VideoThumb>
+                </VideoLink>
                 <VideoTitle>{videos[id].title}</VideoTitle>
             </Video>
         ))}
@@ -28,6 +30,12 @@ const Video = styled.section`
     transform: scale(1.5);
 }
 `
+
+const VideoLink = styled.a`
+    color: inheri;
+`
+
+
 const Container = styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -56,5 +64,12 @@ const mapStateToProps = (state) => ({
     videos: state.videos
 })
 
+const mapDispatchToProps = (dispatch) => ({
+    handleClick: (id) => (e) => {
+        e.preventDefault()
+        console.log(id)
+    }
+})
 
-export default connect(mapStateToProps)(VideosList)
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideosList)
