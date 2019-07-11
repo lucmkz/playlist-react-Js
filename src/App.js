@@ -11,7 +11,8 @@ const App = () => (
   <Container>
   <GlobalStyle />
     <Header>
-      <h1>Playlist</h1>
+      <HeaderTitle>Playlist</HeaderTitle>
+      <RegisterButton>Cadastrar</RegisterButton>
     </Header>
 
     <Main>
@@ -35,8 +36,21 @@ const Main = styled.main`
 `
 
 const Header = styled.header`
- height: ${headerHeight};
- background: #333;
+  align-items: center;
+  height: ${headerHeight};
+  display: flex;
+  justify-content: space-between;
+  background: #333;
+  padding: 0 10px;
+ `
+
+ const HeaderTitle = styled.h1`
+  margin-bottom: 0px;
+  color: #fff;
+ `
+
+ const RegisterButton = styled.button`
+  margin-bottom: 0px;
  `
 
  const Footer = styled.footer`
