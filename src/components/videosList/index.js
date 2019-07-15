@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Play from '../icon-play'
 import { connect } from 'react-redux'
 import { selectVideoSingle } from '../../redux-flow/reducers/video-single/action-creators'
+import { openSingleVideo } from '../../redux-flow/reducers/ui/action-creators'
 
 const VideosList = ({ videos, handleClick }) => (
     <Container>
@@ -69,7 +70,9 @@ const mapDispatchToProps = (dispatch) => ({
     handleClick: (id) => (e) => {
         e.preventDefault()
         dispatch(selectVideoSingle(id))
-    }
+        dispatch(openSingleVideo())
+    },
+
 })
 
 

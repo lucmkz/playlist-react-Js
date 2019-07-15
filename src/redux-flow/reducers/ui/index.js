@@ -1,8 +1,14 @@
 import createReducer from '../create-reducer'
-import { OPEN_REGISTER_VIDEO, CLOSE_REGISTER_VIDEO } from './action'
+import { 
+    OPEN_REGISTER_VIDEO, 
+    CLOSE_REGISTER_VIDEO, 
+    CLOSE_SINGLE_VIDEO,
+    OPEN_SINGLE_VIDEO 
+} from './action'
 
 const initialState = {
-    isRegisterFormOpened: false
+    isRegisterFormOpened: false,
+    isSingleVideoOpened: false
 }
 
 const ui = createReducer(initialState, {
@@ -13,8 +19,15 @@ const ui = createReducer(initialState, {
     [CLOSE_REGISTER_VIDEO] : (state, action) => ({
         ...state,
         isRegisterFormOpened: false
+    }),
+    [CLOSE_SINGLE_VIDEO] : (state, action) => ({
+        ...state,
+        isSingleVideoOpened: false
+    }),
+    [OPEN_SINGLE_VIDEO] : (state, action) => ({
+        ...state,
+        isSingleVideoOpened: true
     })
-
 })
 
-export default ui
+export default (ui)

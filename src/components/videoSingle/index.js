@@ -1,11 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
+import { closeSingleVideo } from '../../redux-flow/reducers/ui/action-creators'
 
-const VideoSingle = ({ id, title }) => (
+const VideoSingle = ({ id, title, onCloseSingleVideo }) => (
     <Container>
         <Iframe title='video' width='560' height='450' src={`https://www.youtube.com/embed/${id}`} frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
         <Title>{title}</Title>
-        <ButtonClose type="button" >&times;</ButtonClose>
+        <ButtonClose type="button" onClick={onCloseSingleVideo} >&times;</ButtonClose>
     </Container>
 )
 
@@ -39,5 +41,13 @@ const ButtonClose = styled.button`
     top: 10px;
 `
 
+const mapDispatchToProps = (disptatch) => ({
+    onCloseSingleVideo: () => disptatch(closeSingleVideo())
+})
 
-export default VideoSingle
+const mapStateToProps = (state) => ({
+    
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(VideoSingle)

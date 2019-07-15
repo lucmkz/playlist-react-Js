@@ -11,7 +11,6 @@ import { headerHeight, footerHeight } from './utils/constants'
 import { fetchVideos } from './redux-flow/reducers/videos/action-creators'
 
 import 'milligram'
-import { dispatch } from 'rxjs/internal/observable/range';
 
 class App extends PureComponent {
 componentDidMount() {
@@ -19,7 +18,7 @@ componentDidMount() {
 }
 
   render () {
-    const {isRegisterFormOpened, videoSingleId, videos} = this.props
+    const {isRegisterFormOpened, videoSingleId, videos, isSingleVideoOpened} = this.props
 
    return(
      <Container>
@@ -28,7 +27,7 @@ componentDidMount() {
   
       <Main>
         {isRegisterFormOpened && <RegisterVideio />}
-        {videoSingleId && <VideoSingle id={videoSingleId} title={videos[videoSingleId].title}/>}
+        {isSingleVideoOpened && <VideoSingle id={videoSingleId} title={videos[videoSingleId].title}/>}
 
         <VideosList />
       </Main>
@@ -55,6 +54,7 @@ const GlobalStyle = createGlobalStyle`
 `
 const mapStateToProps = (state) => ({
   isRegisterFormOpened: state.ui.isRegisterFormOpened,
+  isSingleVideoOpened: state.ui.isSingleVideoOpened,
   videoSingleId: state.videoSingle,
   videos: state.videos
 })
