@@ -5,6 +5,7 @@ const VideoSingle = ({ id, title }) => (
     <Container>
         <Iframe title='video' width='560' height='450' src={`https://www.youtube.com/embed/${id}`} frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
         <Title>{title}</Title>
+        <ButtonClose type="button" >&times;</ButtonClose>
     </Container>
 )
 
@@ -12,6 +13,7 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
 `
 
 const Iframe = styled.iframe`
@@ -24,5 +26,18 @@ const Iframe = styled.iframe`
 const Title = styled.h2`
     padding 10px;
 `
+
+const ButtonClose = styled.button`
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 1;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+`
+
 
 export default VideoSingle
