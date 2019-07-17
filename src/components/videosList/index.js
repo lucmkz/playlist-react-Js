@@ -10,6 +10,7 @@ const VideosList = ({ videos, handleClick }) => (
         {Object.keys(videos).map((id) => (
             <Video key={id}>
                 <VideoLink href="#" onClick={handleClick(id)}>
+                <ButtonClose type="button" >&times;</ButtonClose>
                     <VideoThumb>
                         <PlayStyled />
                     </VideoThumb>
@@ -19,6 +20,10 @@ const VideosList = ({ videos, handleClick }) => (
         ))}
     </Container>
 )
+
+const ButtonClose = styled.button`
+
+`
 
 const PlayStyled = styled(Play)`
   width: 50px;
@@ -35,6 +40,18 @@ const Video = styled.section`
 
 const VideoLink = styled.a`
     color: inheri;
+    
+    & ${ButtonClose}{
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        line-height: 1;
+        position: relative;
+        left: 5px;
+        top: 35px;
+    }
 `
 
 
