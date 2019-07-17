@@ -4,13 +4,14 @@ import Play from '../icon-play'
 import { connect } from 'react-redux'
 import { selectVideoSingle } from '../../redux-flow/reducers/video-single/action-creators'
 import { openSingleVideo } from '../../redux-flow/reducers/ui/action-creators'
+import { removeVideo } from '../../redux-flow/reducers/videos/action-creators'
 
-const VideosList = ({ videos, handleClick }) => (
+const VideosList = ({ videos, handleClick, onRemoveVideo }) => (
     <Container>
         {Object.keys(videos).map((id) => (
             <Video key={id}>
                 <VideoLink href="#" onClick={handleClick(id)}>
-                <ButtonClose type="button" >&times;</ButtonClose>
+                <ButtonClose onClick={onRemoveVideo(id)} type="button" >&times;</ButtonClose>
                     <VideoThumb>
                         <PlayStyled />
                     </VideoThumb>
@@ -89,6 +90,11 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(selectVideoSingle(id))
         dispatch(openSingleVideo())
     },
+
+    onRemoveVideo: (id) => (e) => { 
+        e.preventDefault()
+        dispatch(removeVideo({ id }))
+    }
 
 })
 

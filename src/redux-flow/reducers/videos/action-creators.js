@@ -6,6 +6,11 @@ export const registerVideo = ({ id, title }) => async (dispatch) => {
     dispatch(addVideo({ id, title }))
 }
 
+export const removeVideo = ({ id }) => async (dispatch) => {
+    await console.log(id)
+    
+}
+
 export const addVideo = ({ id, title }) => ({
     type: ADD_VIDEO,
     payload: {id, title}
