@@ -38,7 +38,7 @@ const ButtonClose = styled.button`
 
 const mapDispatchToProps = (dispatch) => ({
     onSubmit: async (e) => {
-        //e.target captura informação do elemento que eamos interagindo
+        //e.target captura informação do elemento que estamos interagindo
         const id = e.target.id.value
         const title = e.target.title.value
         e.preventDefault()
