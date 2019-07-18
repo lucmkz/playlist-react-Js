@@ -4,14 +4,14 @@ import Play from '../icon-play'
 import { connect } from 'react-redux'
 import { selectVideoSingle } from '../../redux-flow/reducers/video-single/action-creators'
 import { openSingleVideo } from '../../redux-flow/reducers/ui/action-creators'
-import { removeVideo } from '../../redux-flow/reducers/videos/action-creators'
+import { unregisterVideo } from '../../redux-flow/reducers/videos/action-creators'
 
 const VideosList = ({ videos, handleClick, onRemoveVideo }) => (
     <Container>
         {Object.keys(videos).map((id) => (
             <Video key={id}>
-                <VideoLink href="#" onClick={handleClick(id)}>
                 <ButtonClose onClick={onRemoveVideo(id)} type="button" >&times;</ButtonClose>
+                <VideoLink href="#" onClick={handleClick(id)}>
                     <VideoThumb>
                         <PlayStyled />
                     </VideoThumb>
@@ -40,30 +40,30 @@ const Video = styled.section`
 `
 
 const VideoLink = styled.a`
-    color: inheri;
+    color: inheri;   
+    `
     
-    & ${ButtonClose}{
-        font-size: 20px;
-        margin: 0;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-        line-height: 1;
-        position: relative;
-        left: 5px;
-        top: 35px;
-    }
-`
-
-
-const Container = styled.div`
-display: flex;
-flex-wrap: wrap;
-padding: 10px;
-
-& ${Video}{
+    
+    const Container = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    
+    & ${Video}{
     flex: 1 1 300px;
     margin: 0 5px 5px;
+
+     & ${ButtonClose}{
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 1;
+    position: relative;
+    left: 5px;
+    top: 35px;
+    }
 }
 `
 //Informando ao componente que ele deve diminuir se for preciso,
@@ -93,7 +93,7 @@ const mapDispatchToProps = (dispatch) => ({
 
     onRemoveVideo: (id) => (e) => { 
         e.preventDefault()
-        dispatch(removeVideo({ id }))
+        dispatch(unregisterVideo({ id }))
     }
 
 })
