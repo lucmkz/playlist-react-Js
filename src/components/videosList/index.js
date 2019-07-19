@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { selectVideoSingle } from '../../redux-flow/reducers/video-single/action-creators'
 import { openSingleVideo } from '../../redux-flow/reducers/ui/action-creators'
 import { unregisterVideo } from '../../redux-flow/reducers/videos/action-creators'
+import { fetchVideos } from '../../redux-flow/reducers/videos/action-creators'
 
 const VideosList = ({ videos, handleClick, onRemoveVideo }) => (
     <Container>
@@ -94,7 +95,10 @@ const mapDispatchToProps = (dispatch) => ({
     onRemoveVideo: (id) => (e) => { 
         e.preventDefault()
         dispatch(unregisterVideo({ id }))
-    }
+        console.log('oi')
+        dispatch(fetchVideos())
+    },
+    
 
 })
 

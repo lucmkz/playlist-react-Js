@@ -18,12 +18,12 @@ export const unregisterVideo = ({ id }) => async (dispatch) => {
 
 export const removeVideo = ({ id, title }) => ({
     type: REMOVE_VIDEO,
-    payload: {id, title}
+    payload: { id, title }
 })
 
 export const addVideo = ({ id, title }) => ({
     type: ADD_VIDEO,
-    payload: {id, title}
+    payload: { id, title }
 })
 
 
@@ -41,6 +41,7 @@ export const fetchVideos = () => (dispatch) => {
                 id,
                 title: videos[id].title
             })))
+
         //snapshot.forEach((child) => {
         //    dispatch(addVideo(child.val()))
         //})
