@@ -41,7 +41,6 @@ export const fetchVideos = () => (dispatch) => {
                 id,
                 title: videos[id].title
             })))
-
         //snapshot.forEach((child) => {
         //    dispatch(addVideo(child.val()))
         //})

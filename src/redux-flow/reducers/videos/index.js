@@ -12,7 +12,6 @@ const Videos = createReducer(initialState, {
         }
     }),
     [REMOVE_VIDEO]: (state, action) => ({
-        ...state
     })
 })
 
