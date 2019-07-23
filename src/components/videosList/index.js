@@ -42,9 +42,9 @@ const Video = styled.section`
 const VideoLink = styled.a`
     color: inheri;   
     `
-    
-    
-    const Container = styled.div`
+
+
+const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
@@ -91,12 +91,12 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(openSingleVideo())
     },
 
-    onRemoveVideo: (id) => (e) => { 
+    onRemoveVideo: (id) => (e) => {
         e.preventDefault()
         dispatch(unregisterVideo({ id }))
         console.log('oi')
     },
-    
+
 
 })
 
