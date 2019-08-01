@@ -8,7 +8,7 @@ const ResgisterVideo = ({ onSubmit, onCloseRegisterVideo }) => (
     <Form onSubmit={onSubmit}>
         <h2>Cadastrar Video</h2>
 
-        <label htmlFor="id"> Id do Video</label>
+        <label htmlFor="id"> URL do vídeo </label>
         <input type="text" id="id" name="id"/>
 
         <label htmlFor="title"> Titulo do Video</label>
