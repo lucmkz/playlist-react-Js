@@ -39,7 +39,9 @@ const ButtonClose = styled.button`
 const mapDispatchToProps = (dispatch) => ({
     onSubmit: async (e) => {
         //e.target captura informação do elemento que estamos interagindo
-        const id = e.target.id.value
+        const value = e.target.id.value
+        const id = value.match(/=(.{11,11})/).toString().slice(1, 12)
+        console.log(value)
         const title = e.target.title.value
         e.preventDefault()
         e.persist()
