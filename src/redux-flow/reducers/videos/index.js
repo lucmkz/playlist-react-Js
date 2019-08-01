@@ -11,9 +11,11 @@ const Videos = createReducer(initialState, {
             title: action.payload.title
         }
     }),
-    [REMOVE_VIDEO]: (state, action) => ({
-        
-    })
+    [REMOVE_VIDEO]: (state, action) => {
+        delete state[action.payload.id]
+
+        return {...state}
+    }
 })
 
 export default Videos
