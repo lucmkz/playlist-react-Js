@@ -21,7 +21,7 @@
   <a href="#memo-license">License</a>
 </p>
 
-![App Screenshot](src/playlist.gif)
+![App Screenshot](src/playlistDemo.gif)
 <p align="center">
   <h5 align="center">
     Available on GiHub Pages
