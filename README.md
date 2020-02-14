@@ -44,6 +44,7 @@ This project was developed just for study with the technologies:
 -  [styled-components](https://www.styled-components.com/)
 -  [React-Icons](https://react-icons.netlify.com/)
 -  [Redux](https://redux.js.org/)
+-  [FireBase](https://firebase.google.com/?hl=pt-br)
 -  [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ## :information_source: How To Use
