@@ -2,17 +2,17 @@
   A PokeDex with React, using Hooks.
 </h4>
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/lucmkz//playlist-react-Js.svg">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/lucmkz/playlist-react-Js.svg">
 
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/lucmkz//playlist-react-Js.svg">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/lucmkz/playlist-react-Js.svg">
 
-  <img alt="Repository size" src="https://img.shields.io/github/languages/code-size/lucmkz//playlist-react-Js.svg">
+  <img alt="Repository size" src="https://img.shields.io/github/languages/code-size/lucmkz/playlist-react-Js.svg">
   
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lucmkz//playlist-react-Js.svg">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/lucmkz/playlist-react-Js.svg">
 
-  <img alt="Repository issues" src="https://img.shields.io/github/issues/lucmkz//playlist-react-Js.svg">
+  <img alt="Repository issues" src="https://img.shields.io/github/issues/lucmkz/playlist-react-Js.svg">
 
-  <img alt="GitHub" src="https://img.shields.io/github/license/lucmkz//playlist-react-Js.svg">
+  <img alt="GitHub" src="https://img.shields.io/github/license/lucmkz/playlist-react-Js.svg">
 </p>
 
 <p align="center">
