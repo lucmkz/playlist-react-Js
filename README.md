@@ -77,4 +77,3 @@ Made by Lucas Santos :wave: [Get in touch!](https://www.linkedin.com/in/lucasmk/
 [vc]: https://code.visualstudio.com/
 [vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
 [vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-
